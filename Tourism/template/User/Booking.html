@@ -5,7 +5,7 @@
     {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>package hub</title>
+    <title>Bookings</title>
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
@@ -164,7 +164,7 @@
       </tr>
       {% for booking in bookings_data %}
       <tr>
-        <td>{{ booking.package_id.user_id.username }}</td>
+        <td>{{ booking.package_id.user_id.agencyName }}</td>
         <td>{{ booking.package_id.package_name }}</td>
         <td>{{ booking.package_id.destination }}</td>
         <td>{{ booking.booking_date }}</td>
