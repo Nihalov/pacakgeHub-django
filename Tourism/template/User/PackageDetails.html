@@ -44,15 +44,6 @@
         color: #c59b08;
       }
 
-      #pack-details{
-        border: solid 2px #7ad86991;
-        padding: 15px;
-        background: rgba(240, 248, 255, 0.666);
-        margin-bottom: 20px;
-        margin-top: 15px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.111);
-      }
 </style>
 <div class="flex flex-wrap justify-content-center" style="margin-top: 85px;">
 
@@ -69,7 +60,7 @@
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon " aria-hidden="true" ></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
@@ -85,7 +76,7 @@
     {% csrf_token %}
     <div class="form-group">
       <label for="name">full name</label>
-      <input type="text" name="name" class="form-control" id="name" placeholder="Enter full name" required>
+      <input type="text" name="name" class="form-control" id="name" value="{{user}}" required>
     </div>
     <div class="form-group">
       <label for="st-date">Enter date</label>
@@ -100,7 +91,7 @@
       <div class="d-flex flex-wrap" style="gap: 20px;">
 
       <select name="health_assistant" id="">
-        <option value="">select</option>
+        <option value="">No</option>
         {% for assistant in health_assistant %}
             <option value="{{ assistant.id }}">{{ assistant.first_name }} - {{ assistant.qualification }}</option>
         {% endfor %}
@@ -122,7 +113,9 @@
 </div>
 <div class="container details">
   <h1><b>{{ package.package_name }}</b></h1>
-  <h5>created by {{ package.user_id.agencyName }}</h5>
+  <h5>created by :</h5>
+  <h5>&emsp; &emsp; {{ package.user_id.agencyName }}</h5>
+  <h5>&emsp; &emsp; Contact-{{package.user_id.phone_number}}</h5>
   <!-- <div class="row"> -->
   <b>
     <div id="pack-details">
@@ -228,7 +221,7 @@
     width: 400px;
     margin: 0px auto;
     padding: 40px 30px;
-    background-color: #fff;
+    background-color: rgba(240, 248, 255, 0.666);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 35px;
@@ -248,7 +241,17 @@
     align-items: center;
     margin-top: 20px;
     padding-left: 80px;
-}
+  }
+
+  #pack-details{
+    border: solid 2px #7ad86991;
+    padding: 15px;
+    background: rgba(240, 248, 255, 0.666);
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.111);
+    }
 
 
   
