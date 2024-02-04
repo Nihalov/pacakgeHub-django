@@ -437,7 +437,12 @@ def payments(request,id):
         return render(request, 'User/payment.html', {'User':User, 'booking':booking})
 
 
-
-
+def clearPackage(request):
+    if request.method == 'POST':
+        User = CustomUser.objects.get(id=request.user.id)
+        Booking.objects.filter(user_id=User).delete()
+        return redirect(userviewbookings)
+    else:
+        return HttpResponse('error') # Only allow POST requests for security
 
 

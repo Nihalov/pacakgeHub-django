@@ -51,6 +51,9 @@ urlpatterns = [
     path('usersearch_package', views.usersearch_package, name="usersearch_package"),
     path('user_contact', views.user_contact, name="user_contact"),
     path('packageDetails/<int:id>', views.packageDetails, name="packageDetails"),
+    
+    path('clearPackages',views.clearPackage),
+
     path('userviewbookings', views.userviewbookings, name="userviewbookings"),
     path('cancel_booking/<int:id>', views.cancel_booking, name="cancel_booking"),
     path('add_review/<int:id>', views.add_review, name="add_review"),
